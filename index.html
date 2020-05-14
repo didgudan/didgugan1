@@ -1,0 +1,43 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link href="https://fonts.googleapis.com/css2?family=Podkova:wght@400;800&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="compiled/flipclock.css">
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+		<script src="compiled/flipclock.js"></script>	
+	</head>
+	<body>
+		<h1>
+			Лічильник часу на оновлення серверної частини КП "Д3" у зв'язку з набранням чинності змін до Інструкції з діловодства в місцевих та апеляційних судах України з 01.01.2020 року.
+		<h1/>
+		<div class="wrapper-wrapper">
+		<div class="clock" style="margin:2em;"></div>
+		</div>
+		<script type="text/javascript">
+			var clock;
+
+			$(document).ready(function() {
+
+				// Grab the current date
+				var currentDate = new Date();
+
+				// Set some date in the past. In this case, it's always been since Jan 1
+				var pastDate  = new Date(currentDate.getFullYear(), 0, 1);
+
+				// Calculate the difference in seconds between the future and current date
+				var diff = currentDate.getTime() / 1000 - pastDate.getTime() / 1000;
+				
+				
+
+				// Instantiate a coutdown FlipClock
+				clock = $('.clock').FlipClock(diff, {
+					clockFace: 'DailyCounter',
+					language:'ru-ru'
+				});
+			});
+		</script>
+		
+	</body>
+</html>
